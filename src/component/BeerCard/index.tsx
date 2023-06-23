@@ -13,13 +13,12 @@ import {
   StatNumber,
   Box,
 } from "@chakra-ui/react";
-
-type Beer = any;
+import { Beer } from "../../types/beer";
 
 const noImagePlaceholder =
   "https://commons.wikimedia.org/wiki/File:No-Image-Placeholder.svg";
 
-const BeerCard: FC<Beer> = ({ beer }) => {
+const BeerCard: FC<{ beer: Beer }> = ({ beer }) => {
   const beerParams = {
     ABV: beer.abv,
     IBU: beer.ibu,
