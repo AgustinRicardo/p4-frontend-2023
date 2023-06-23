@@ -3,6 +3,7 @@ import { Heading, IconButton, VStack, useToast, Text } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router";
 import { getBeerById } from "../../services/beers";
 import { ArrowBackIcon } from "@chakra-ui/icons";
+import BeerCard from "../../component/BeerCard";
 
 const BeerDetails = () => {
   const toast = useToast();
@@ -43,7 +44,7 @@ const BeerDetails = () => {
         icon={<ArrowBackIcon />}
         onClick={() => navigate("/")}
       />
-      <Text>beerId</Text>
+      <BeerCard beer={beer} />
     </VStack>
   );
 };
