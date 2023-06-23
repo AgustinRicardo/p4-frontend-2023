@@ -1,5 +1,18 @@
-import { Text, Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, TableContainer, Image } from "@chakra-ui/react";
+import {
+  Text,
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+  Image,
+} from "@chakra-ui/react";
 import { FC } from "react";
+import { useNavigate } from "react-router";
 
 interface Beer {
   id: number;
@@ -10,6 +23,8 @@ interface Beer {
 }
 
 const BeersTable: FC<{ beers: Beer[] }> = ({ beers }) => {
+  const navigate = useNavigate();
+
   return (
     <TableContainer>
       <Table variant="simple">
@@ -32,7 +47,12 @@ const BeersTable: FC<{ beers: Beer[] }> = ({ beers }) => {
         </Thead>
         <Tbody>
           {beers.map((beer) => (
-            <Tr key={beer.id}>
+            <Tr
+              key={beer.id}
+              onClick={() => navigate(`/${beer.id}`)}
+              style={{ cursor: "pointer" }}
+              _hover={{ bg: "gray.100" }}
+            >
               <Td>
                 <Image
                   boxSize="100px"
