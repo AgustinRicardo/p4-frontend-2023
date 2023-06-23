@@ -14,6 +14,7 @@ const BeerDetails = () => {
   const getBeerFromAPI = async (id: string) => {
     try {
       const currentBeer = await getBeerById(id);
+      console.log(currentBeer);
       setBeer(currentBeer);
     } catch (error) {
       toast({
@@ -42,7 +43,7 @@ const BeerDetails = () => {
         icon={<ArrowBackIcon />}
         onClick={() => navigate("/")}
       />
-      <Text>{beerId}</Text>
+      <Text>beerId</Text>
     </VStack>
   );
 };
